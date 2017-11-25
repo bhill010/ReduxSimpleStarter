@@ -30,7 +30,7 @@ class TriviaIndex extends Component {
 
       return (
         <Link key={question.id} to={`/questions/${question.id}`}>
-          <li className="list-group-item">
+          <li className="list-group-item index-item">
             { question.category.name }
           </li>
         </Link>
@@ -40,12 +40,12 @@ class TriviaIndex extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Question Categories</h3>
-        <ul className="list-group">
+      <div className="index">
+        <h3 className="index-header">Question Categories</h3>
+        <ul className="list-group index-list">
           { this.renderQuestions() }
         </ul>
-        <button className="btn btn-primary" onClick={this.newQuestions}>
+        <button className="btn btn-primary index-button" onClick={this.newQuestions}>
           Generate New Questions
         </button>
       </div>

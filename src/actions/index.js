@@ -20,6 +20,7 @@ export function fetchQuestion(id){
   // https://qriusity.com/v1/questions/22
   // /v1/questions/:id
   const request = axios.get(`${ROOT_URL}/${id}`);
+  console.log("action request:", request);
 
   return {
     type: FETCH_QUESTION,

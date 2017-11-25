@@ -1,3 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+
+/* GLOBAL STYLING */
+body {
+    background-image: url(../src/img/trivia.jpg);
+}
+
+body * {
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 20px;
+}
+
+a:link {
+  text-decoration: none !important;
+}
+
 .hidden-answer {
   visibility: hidden;
+}
+
+/* INDEX STYLING */
+.index, .question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.index-header, .index-item, .question-header {
+  text-align: center;
+}
+
+.index-header, .question-header {
+  margin-top: 20px;
+  color: white;
+  font-size: 50px;
+}
+
+.index-list, .question-list {
+  width: 30%;
+}
+
+.index-item, .question-item {
+  margin: 15px;
+  text-decoration: none !important;
+  transition: 0.2s background, 0.2s border-color, 0.2s color;
+}
+
+.index-item:hover, .question-item:hover {
+  background-color: #9fdce3;
+  border-color: #9fdce3;
+  color: white;
+  text-decoration: none !important;
+}
+
+.index-button, .question-button {
+  margin: 30px;
+  font-size: 20px !important;
+  padding: 10px 30px;
+  animation-name: buttonColor;
+  animation-duration: 10s;
+  animation-timing-duration: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes buttonColor {
+  0% {
+    background-color: #4b9bf7;
+    border-color: #4b9bf7;
+  }
+
+  25% {
+    background-color: #0267be;
+    border-color: #0267be;
+  }
+
+  50% {
+    background-color: #4b9bf7;
+    border-color: #4b9bf7;
+  }
+
+  75% {
+    background-color: #0267be;
+    border-color: #0267be;
+  }
+
+  100% {
+    background-color: #4b9bf7;
+    border-color: #4b9bf7;
+  }
+}
+
+/* QUESTIONN STYLING */
+
+.question-paragraph {
+  margin-top: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+.question-back-button {
+  align-self: flex-end;
+  margin-top: 20px;
+  font-size: 20px !important;
+  padding: 10px 30px;
 }

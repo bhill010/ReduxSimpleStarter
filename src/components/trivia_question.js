@@ -5,8 +5,12 @@ import { fetchQuestion } from '../actions';
 
 class TriviaQuestion extends Component {
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.props.fetchQuestion(id);
+    if(!this.props.question){
+      const { id } = this.props.match.params;
+      console.log("fetching question...");
+      this.props.fetchQuestion(id);
+    }
+
   }
 
   renderAnswer(answer, ...choices) {
@@ -18,26 +22,28 @@ class TriviaQuestion extends Component {
   }
 
   render() {
+    console.log("state", this.props.question);
     const { question } = this.props;
+    console.log("question", question);
 
     if (!question) {
       return <div>Loading...</div>;
     }
 
     return (
-      <div>
-        <Link to="/" className="btn btn-primary pull-xs-right">Back to index</Link>
-        <h3>Question:</h3>
-        <p>{ question.question }</p>
-        <h4>Choices:</h4>
-        <ul className="list-group">
-          <li className="list-group-item">{question.option1}</li>
-          <li className="list-group-item">{question.option2}</li>
-          <li className="list-group-item">{question.option3}</li>
-          <li className="list-group-item">{question.option4}</li>
+      <div className="question">
+        <Link to="/" className="btn btn-danger pull-xs-right question-back-button">Back to index</Link>
+        <h3 className="question-header">Question:</h3>
+        <p className="question-paragraph">{ question.question }</p>
+        <h4 className="question-header">Choices:</h4>
+        <ul className="list-group question-list">
+          <li className="list-group-item question-item">{question.option1}</li>
+          <li className="list-group-item question-item">{question.option2}</li>
+          <li className="list-group-item question-item">{question.option3}</li>
+          <li className="list-group-item question-item">{question.option4}</li>
         </ul>
-        <button className="btn btn-primary" onClick={this.revealAnswer}>Answer</button>
-        <p id="answer" className="hidden-answer">
+        <button className="btn btn-primary question-button" onClick={this.revealAnswer}>Answer</button>
+        <p id="answer" className="hidden-answer question-paragraph">
           {this.renderAnswer(question.answers, question.option1, question.option2, question.option3, question.option4)}
         </p>
       </div>
