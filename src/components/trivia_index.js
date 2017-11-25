@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchQuestions } from '../actions';
 
 class TriviaIndex extends Component {
@@ -14,10 +15,17 @@ class TriviaIndex extends Component {
     }
 
     return _.map(this.props.questions, (question, index) => {
+      if (index === "undefined") {
+        return;
+      }
+      
       return (
-        <li key={index} className="list-group-item">
-          { question.category.name }
-        </li>
+        <Link key={question.id} to={`/questions/${question.id}`}>
+          <li className="list-group-item">
+            { console.log(`question ${index}`, this.props.question) }
+            { question.category.name }
+          </li>
+        </Link>
       );
     });
   }
