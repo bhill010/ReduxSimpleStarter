@@ -4,13 +4,18 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchQuestions } from '../actions';
 
+var count = 0;
+
 class TriviaIndex extends Component {
   constructor(props){
     super(props);
     this.newQuestions = this.newQuestions.bind(this);
   }
   componentDidMount() {
-    this.props.fetchQuestions();
+    if (count === 0) {
+      this.props.fetchQuestions();
+      count++;
+    }
   }
 
   newQuestions() {

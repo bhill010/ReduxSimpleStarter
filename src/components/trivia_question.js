@@ -27,7 +27,10 @@ class TriviaQuestion extends Component {
     console.log("question", question);
 
     if (!question) {
-      return <div>Loading...</div>;
+      setTimeout(() => {
+        this.props.history.push("/");
+      }, 2000);
+      return <div className="question-header">Finding new questions...</div>;
     }
 
     return (
