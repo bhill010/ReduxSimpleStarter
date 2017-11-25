@@ -6,8 +6,8 @@ export const FETCH_QUESTION = 'fetch_question';
 const ROOT_URL = `https://qriusity.com/v1/questions`;
 const PAGE_NUMBER = Math.floor(Math.random() * 2000);
 
-export function fetchQuestions(){
-  const request = axios.get(`${ROOT_URL}?page=${PAGE_NUMBER}&limit=5`);
+export function fetchQuestions(pageNumber = PAGE_NUMBER){
+  const request = axios.get(`${ROOT_URL}?page=${pageNumber}&limit=5`);
   // console.log("action request", request);
 
   return {

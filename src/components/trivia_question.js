@@ -9,6 +9,14 @@ class TriviaQuestion extends Component {
     this.props.fetchQuestion(id);
   }
 
+  renderAnswer(answer, ...choices) {
+    return choices[answer];
+  }
+
+  revealAnswer() {
+    document.getElementById("answer").classList.remove("hidden-answer");
+  }
+
   render() {
     const { question } = this.props;
 
@@ -28,6 +36,10 @@ class TriviaQuestion extends Component {
           <li className="list-group-item">{question.option3}</li>
           <li className="list-group-item">{question.option4}</li>
         </ul>
+        <button className="btn btn-primary" onClick={this.revealAnswer}>Answer</button>
+        <p id="answer" className="hidden-answer">
+          {this.renderAnswer(question.answers, question.option1, question.option2, question.option3, question.option4)}
+        </p>
       </div>
     );
   }

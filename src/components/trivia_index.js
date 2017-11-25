@@ -5,8 +5,17 @@ import { Link } from 'react-router-dom';
 import { fetchQuestions } from '../actions';
 
 class TriviaIndex extends Component {
+  constructor(props){
+    super(props);
+    this.newQuestions = this.newQuestions.bind(this);
+  }
   componentDidMount() {
     this.props.fetchQuestions();
+  }
+
+  newQuestions() {
+    let pageNumber = Math.floor(Math.random() * 2000);
+    this.props.fetchQuestions(pageNumber);
   }
 
   renderQuestions() {
@@ -18,11 +27,10 @@ class TriviaIndex extends Component {
       if (index === "undefined") {
         return;
       }
-      
+
       return (
         <Link key={question.id} to={`/questions/${question.id}`}>
           <li className="list-group-item">
-            { console.log(`question ${index}`, this.props.question) }
             { question.category.name }
           </li>
         </Link>
@@ -37,6 +45,9 @@ class TriviaIndex extends Component {
         <ul className="list-group">
           { this.renderQuestions() }
         </ul>
+        <button className="btn btn-primary" onClick={this.newQuestions}>
+          Generate New Questions
+        </button>
       </div>
     );
   }

@@ -6,7 +6,7 @@ export default function(state = {}, action) {
     case FETCH_QUESTION:
       return { ...state, [ action.payload.data.id]: action.payload.data }
     case FETCH_QUESTIONS:
-      // console.log("reducer data", _.mapKeys(action.payload.data, 'id');
+      console.log("reducer data", action.payload.data);
       return _.mapKeys(action.payload.data, 'id');
     default:
       return state;
