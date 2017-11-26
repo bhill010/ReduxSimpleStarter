@@ -4,22 +4,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchQuestions, deleteQuestion } from '../actions';
 
-
-// $(".fa-check-square").click(function(){
-//     $(this).siblings().remove();
-// });
-
-// $("#test").on("click", function() {
-//   console.log("jquery");
-//   // $(this).siblings().remove();
-// });
-
 $(document).on('click', '#test', function(){
   $(this).siblings().fadeOut(500, function(){
     $(this).siblings().addClass("hidden");
   });
-  // $(this).siblings().addClass("hidden");
-  // $(this).addClass("hidden");
+
   $(this).fadeOut(500, function(){
     $(this).addClass("hidden");
   });
@@ -32,7 +21,6 @@ class TriviaIndex extends Component {
     super(props);
     this.newQuestions = this.newQuestions.bind(this);
     this.onDeleteClick = this.onDeleteClick.bind(this);
-    // this.removeQuestion = this.removeQuestion.bind(this);
   }
 
   componentDidMount() {
@@ -41,7 +29,6 @@ class TriviaIndex extends Component {
       count++;
     }
   }
-
 
   onDeleteClick(id) {
     setTimeout(() => {
@@ -78,9 +65,9 @@ class TriviaIndex extends Component {
   }
 
   render() {
-    console.log("Rerendering...");
     return (
       <div className="index">
+        <h2 className="logo pull-xs-left">Trivia Wizard</h2>
         <h3 className="index-header">Question Categories</h3>
         <ul className="list-group index-list">
           { this.renderQuestions() }

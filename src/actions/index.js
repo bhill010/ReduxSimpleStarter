@@ -9,7 +9,6 @@ const PAGE_NUMBER = Math.floor(Math.random() * 2000);
 
 export function fetchQuestions(pageNumber = PAGE_NUMBER){
   const request = axios.get(`${ROOT_URL}?page=${pageNumber}&limit=5`);
-  console.log("action request fetching...", request);
 
   return {
     type: FETCH_QUESTIONS,
@@ -18,10 +17,7 @@ export function fetchQuestions(pageNumber = PAGE_NUMBER){
 }
 
 export function fetchQuestion(id){
-  // https://qriusity.com/v1/questions/22
-  // /v1/questions/:id
   const request = axios.get(`${ROOT_URL}/${id}`);
-  // console.log("action request:", request);
 
   return {
     type: FETCH_QUESTION,

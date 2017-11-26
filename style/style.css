@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Franklin');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
 
 /* GLOBAL STYLING */
 body {
@@ -8,6 +9,13 @@ body {
 body * {
   font-family: 'Libre Franklin', sans-serif;
   font-size: 20px;
+}
+
+.logo {
+  align-self: flex-start;
+  color: white;
+  padding-top: 10px;
+  font-family: 'Lobster', cursive;
 }
 
 a:link {
@@ -44,7 +52,7 @@ a:link {
 }
 
 .index-header, .question-header {
-  margin-top: 20px;
+  margin-top: 40px;
   color: white;
   font-size: 50px;
 }
@@ -59,7 +67,7 @@ a:link {
 }
 
 .index-link {
-  flex-basis: 80%;
+  flex-basis: 90%;
 }
 
 .index-item-container {
@@ -124,6 +132,33 @@ li.index-item {
   }
 }
 
+.shake {
+  animation: shake 2s linear both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
 /* QUESTIONN STYLING */
 
 .question-paragraph {
@@ -137,4 +172,16 @@ li.index-item {
   margin-top: 20px;
   font-size: 20px !important;
   padding: 10px 30px;
+}
+
+.wrong {
+  background-color: red !important;
+  border-color: red !important;
+  color: white !important;
+}
+
+.right {
+  background-color: #59fd30 !important;
+  border-color: #59fd30 !important;
+  color: white !important;
 }
