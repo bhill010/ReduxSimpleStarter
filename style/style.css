@@ -18,9 +18,23 @@ a:link {
   visibility: hidden;
 }
 
+.hidden {
+  visibility: hidden !important;
+}
+
 /* INDEX STYLING */
+.fa-check-square {
+  font-size: 30px !important;
+  /*transition: 0.2s color;*/
+  color: white;
+}
+
+.fa-check-square:hover {
+  color: #49ce49;
+}
+
 .index, .question {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: center;
 }
@@ -39,6 +53,22 @@ a:link {
   width: 30%;
 }
 
+.index-list {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.index-link {
+  flex-basis: 70%;
+}
+
+.index-item-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 80px;
+}
+
 .index-item, .question-item {
   margin: 15px;
   text-decoration: none !important;
@@ -50,6 +80,11 @@ a:link {
   border-color: #9fdce3;
   color: white;
   text-decoration: none !important;
+}
+
+li.index-item {
+  display: flex !important;
+  justify-content: center;
 }
 
 .index-button, .question-button {

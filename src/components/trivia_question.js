@@ -22,9 +22,9 @@ class TriviaQuestion extends Component {
   }
 
   render() {
-    console.log("state", this.props.question);
+    // console.log("state", this.props.question);
     const { question } = this.props;
-    console.log("question", question);
+    // console.log("question", question);
 
     if (!question) {
       setTimeout(() => {
