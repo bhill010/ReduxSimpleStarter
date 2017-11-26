@@ -15,8 +15,14 @@ import { fetchQuestions, deleteQuestion } from '../actions';
 // });
 
 $(document).on('click', '#test', function(){
-  $(this).siblings().addClass("hidden");
-  $(this).addClass("hidden");
+  $(this).siblings().fadeOut(500, function(){
+    $(this).siblings().addClass("hidden");
+  });
+  // $(this).siblings().addClass("hidden");
+  // $(this).addClass("hidden");
+  $(this).fadeOut(500, function(){
+    $(this).addClass("hidden");
+  });
 });
 
 var count = 0;
@@ -38,7 +44,9 @@ class TriviaIndex extends Component {
 
 
   onDeleteClick(id) {
-    this.props.deleteQuestion(id);
+    setTimeout(() => {
+      this.props.deleteQuestion(id);
+    }, 800);
   }
 
   newQuestions() {
